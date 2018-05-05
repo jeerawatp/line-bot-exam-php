@@ -4,6 +4,15 @@
 
 require "vendor/autoload.php";
 
+
+$content = file_get_contents('php://input');
+$events = json_decode($content, true);
+if (!is_null($events['events'])) {
+	foreach ($events['events'] as $event) {
+		echo = $event['userId'];
+	}
+	}
+
 $access_token = 'LtQ9cC/RPw+Lju3CjezNCqQscG10Ykl2zMLqmHVNIeYciYmjulShzIolUFtnQeYyxW0NmtpGH2xP/UMkx4JNUkdzDhcQaOqHapy8yfAqCEncQoxKuSCZ2TcDM9oBjxNQsdrzjVKpdY/txklE9mdLiwdB04t89/1O/w1cDnyilFU=';
 
 $channelSecret = '022a4f3b857ac6a2daa6cd26ec614bdd';
