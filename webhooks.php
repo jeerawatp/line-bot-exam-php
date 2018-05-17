@@ -11,9 +11,6 @@
     
 
 
-
-if (!is_null($arrayJson['events'])) {
-    
     $message = $arrayJson['events'][0]['message']['text'];
 
     foreach ($arrayJson as $events) {
@@ -26,7 +23,6 @@ if (!is_null($arrayJson['events'])) {
         }
      }
 
-}
 
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
