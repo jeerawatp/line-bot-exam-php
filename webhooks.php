@@ -13,15 +13,12 @@
 
     $message = $arrayJson['events'][0]['message']['text'];
 
-    foreach ($arrayJson as $events) {
-
-        if($message == "รหัส"){
+        if($message == "a"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $event['source']['userId'];
+        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['replyToken'];
         replyMsg($arrayHeader,$arrayPostData);
         }
-     }
 
 
 function replyMsg($arrayHeader,$arrayPostData){
