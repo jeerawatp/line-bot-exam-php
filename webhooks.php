@@ -11,12 +11,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
-	
-	$myfile = fopen("log.txt", "w") or die("Unable to open file!");
-			$txt = "aa";
-			fwrite($myfile, $txt);
-			fclose($myfile);
-	
+
 	
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -41,7 +36,7 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
+			
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -50,6 +45,13 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
+			
+				
+			$myfile = fopen("log.txt", "w") or die("Unable to open file!");
+			$txt = $replyToken;
+			fwrite($myfile, $txt);
+			fclose($myfile);
+	
 
 			echo $result . "\r\n";	
 			
