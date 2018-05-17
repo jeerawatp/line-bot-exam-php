@@ -44,7 +44,15 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			echo $result . "\r\n";
+			echo $result . "\r\n";	
+			
+			$myfile = fopen("log.txt", "w") or die("Unable to open file!");
+			$txt = $event['source']['userId'];
+			fwrite($myfile, $txt);
+			$txt = "Jane Doe\n";
+			fwrite($myfile, $txt);
+			fclose($myfile);
+
 		}
 	}
 }
