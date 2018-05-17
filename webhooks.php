@@ -22,9 +22,15 @@
                 $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
                 replyMsg($arrayHeader,$arrayPostData);
             }
+            if($message == "รหัส"){
+                $arrayPostData['replyToken'] = $events['events'][0]['replyToken'];
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = $event['source']['userId'];
+                replyMsg($arrayHeader,$arrayPostData);
+            }
 
         }
-    
+
 
 
 
