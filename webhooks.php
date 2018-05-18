@@ -17,7 +17,7 @@
 
 
            if($event['message']['text'] == "สวัสดี"){
-                $arrayPostData['replyToken'] = $events['events'][0]['replyToken'];
+                $arrayPostData['replyToken'] = $event['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
                 replyMsg($arrayHeader,$arrayPostData);
