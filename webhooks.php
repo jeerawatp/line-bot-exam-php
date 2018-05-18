@@ -23,14 +23,14 @@
                 replyMsg($arrayHeader,$arrayPostData);
             }else
             if($event['message']['text'] == "รหัส"){
-                $arrayPostData['replyToken'] = $events['events'][0]['replyToken'];
+                $arrayPostData['replyToken'] = $event['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = $event['source']['userId'];
                 replyMsg($arrayHeader,$arrayPostData);
             }else
             if($event['message']['text'] == "แมว"){
             $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
-            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['replyToken'] = $event['replyToken'];
             $arrayPostData['messages'][0]['type'] = "image";
             $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
             $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
