@@ -28,7 +28,7 @@
                 $arrayPostData['messages'][0]['text'] = $event['source']['userId'];
                 replyMsg($arrayHeader,$arrayPostData);
             }else
-            if($message == "รูปน้องแมว"){
+            if($event['message']['text'] == "รูปน้องแมว"){
             $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
             $arrayPostData['messages'][0]['type'] = "image";
