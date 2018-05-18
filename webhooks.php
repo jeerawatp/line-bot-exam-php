@@ -8,41 +8,38 @@
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
-
-
     $message = $events['events'][0]['message']['text'];
-
 
     // Loop through each event
     foreach ($events['events'] as $event) {
+
+
+
 
            if($message == "สวัสดี"){
                 $arrayPostData['replyToken'] = $events['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
                 replyMsg($arrayHeader,$arrayPostData);
-            }
+            }else
             if($message == "รหัส"){
                 $arrayPostData['replyToken'] = $events['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = $event['source']['userId'];
                 replyMsg($arrayHeader,$arrayPostData);
-            }
-            if($message == "แมว"){
-                $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
-                $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-                $arrayPostData['messages'][0]['type'] = "image";
-                $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
-                $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-                replyMsg($arrayHeader,$arrayPostData);
+            }else
+            if($message == "รูปน้องแมว"){
+            $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
+            $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+            $arrayPostData['messages'][0]['type'] = "image";
+            $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
+            $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
+            replyMsg($arrayHeader,$arrayPostData);
             }
         
 
+
         }
-
-
-
-
 
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
